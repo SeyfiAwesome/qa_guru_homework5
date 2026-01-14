@@ -1,4 +1,3 @@
-import time
 from selene import browser, have
 
 
@@ -38,7 +37,8 @@ def test_registration_form():
     browser.element('label[for="hobbies-checkbox-3"]').click()
 
     # Uploading the file to the "Picture" block
-    browser.element('#uploadPicture').send_keys('attachments/test.png')
+    browser.element('#uploadPicture').send_keys(
+        '/Users/seyfiismailov/Desktop/qa_guru/qa_guru_homework5/attachments/test.png')
 
     # Fill the "Current Address" field
     browser.element('#currentAddress').type("Saint-Petersburg, Aptekarskaya street, 5")
@@ -48,12 +48,9 @@ def test_registration_form():
     browser.all('div[id^=react-select-3-option]').element_by(have.exact_text('NCR')).click()
     browser.element('#city').click()
     browser.all('div[id^="react-select-4-option"]').element_by(have.exact_text("Delhi")).click()
-    time.sleep(5)
 
     # Click on Submit bttn
     browser.element('#submit').click()
-    time.sleep(2)
 
     # Close the pop-up
     browser.element('#closeLargeModal').click()
-    time.sleep(5)
